@@ -5,9 +5,13 @@ import Preloader from './Preloader';
 import Navigation from './Navigation';
 import Hero from './Hero';
 import About from './About';
+import Experience from './Experience'
+import Services from './Services';
 import Projects from './Projects';
 import Contact from './Contact';
 import Footer from './Footer';
+
+
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -49,6 +53,8 @@ const Portfolio = () => {
         <main>
           <Hero />
           <About />
+          <Experience/>
+          <Services/>
           <Projects />
           <Contact />
         </main>

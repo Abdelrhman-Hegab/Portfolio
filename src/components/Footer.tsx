@@ -11,6 +11,8 @@ const Footer = () => {
   const navLinks = [
     { name: 'Home', href: '#hero' },
     { name: 'About', href: '#about' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Services', href: '#services' },
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' }
   ];
@@ -63,7 +65,7 @@ const Footer = () => {
             ease: 'back.out(1.7)'
           });
         };
-        
+
         const handleMouseLeave = () => {
           gsap.to(icon, {
             scale: 1,
@@ -95,7 +97,7 @@ const Footer = () => {
   };
 
   return (
-    <footer 
+    <footer
       ref={footerRef}
       className="relative py-20 overflow-hidden"
     >
@@ -118,7 +120,7 @@ const Footer = () => {
         <div className="glass-card text-center space-y-8">
           {/* Logo */}
           <div>
-            <h3 className="text-3xl font-bold text-gradient mb-2">Mano</h3>
+            <h3 className="text-3xl font-bold text-gradient mb-2">Abdelrhman Mohamed</h3>
             <p className="text-muted-foreground">Frontend Developer</p>
           </div>
 

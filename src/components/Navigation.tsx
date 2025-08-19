@@ -9,6 +9,8 @@ const Navigation = () => {
   const navLinks = [
     { name: 'Home', href: '#hero' },
     { name: 'About', href: '#about' },
+    { name: 'Experience', href: '#experience'},
+    { name: 'Services', href: '#services' },
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' }
   ];
@@ -96,7 +98,7 @@ const Navigation = () => {
             onClick={() => scrollToSection('#hero')}
             className="text-2xl font-bold text-gradient hover:scale-105 transition-transform duration-300"
           >
-            Mano
+            Abdelrhaman
           </button>
 
           {/* Desktop Navigation */}

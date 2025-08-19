@@ -58,7 +58,7 @@ const Preloader = ({ onLoadComplete }: PreloaderProps) => {
         {/* Logo */}
         <div className="preloader-logo mb-8">
           <h1 className="text-6xl md:text-8xl font-bold text-gradient">
-            Mano
+            Abdelrhman Mohamed
           </h1>
           <p className="text-muted-foreground text-lg mt-2">Frontend Developer</p>
         </div>

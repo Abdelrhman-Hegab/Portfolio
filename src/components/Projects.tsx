@@ -8,7 +8,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Projects = () => {
   const projectsRef = useRef<HTMLElement>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
 
   const projects = [
     {
@@ -25,7 +24,7 @@ const Projects = () => {
       title: "Coffee Shop Website UI",
       description: "Modern e-commerce platform with smooth animations and immersive user experience.",
       image: "/lovable-uploads/a04b7063-1903-43eb-88ac-7c80c9fcffbc.png",
-      tech: ["PhotoShop", "illustrator","Framer Motion"],
+      tech: ["PhotoShop", "illustrator", "Framer Motion"],
       demo: "https://drive.google.com/file/d/1XWVUOaCcFxgY9xOySEhXu46-JR7GuUxY/view?usp=sharing",
       github: "https://drive.google.com/file/d/1XWVUOaCcFxgY9xOySEhXu46-JR7GuUxY/view?usp=sharing"
     },
@@ -102,31 +101,13 @@ const Projects = () => {
           start: 'top 80%'
         }
       });
-
-      // Horizontal scroll for mobile
-      if (window.innerWidth < 768) {
-        const scrollContainer = scrollRef.current;
-        if (scrollContainer) {
-          gsap.to(scrollContainer, {
-            x: () => -(scrollContainer.scrollWidth - scrollContainer.offsetWidth),
-            ease: 'none',
-            scrollTrigger: {
-              trigger: scrollContainer,
-              pin: true,
-              scrub: 1,
-              end: () => `+=${scrollContainer.scrollWidth}`
-            }
-          });
-        }
-      }
-
     }, projectsRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section 
+    <section
       ref={projectsRef}
       className="py-20 relative overflow-hidden"
       id="projects"
@@ -136,30 +117,31 @@ const Projects = () => {
           Featured Projects
         </h2>
 
-        {/* Desktop Grid */}
-        <div className="projects-grid hidden md:grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        {/* Projects Grid - Responsive (Stack on mobile) */}
+        <div className="projects-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <div 
+            <div
               key={project.id}
               className="project-card glass-card hover:glow-primary transition-all duration-500 hover:scale-105 group cursor-pointer"
             >
               {/* Project Image */}
               <div className="relative overflow-hidden rounded-t-2xl mb-4">
-                <img 
+                <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
+
                 {/* Overlay buttons */}
                 <div className="absolute inset-0 flex items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Button variant="secondary" size="sm" className="bg-background/20 backdrop-blur-sm">
-                     <a href={project.demo} target="_blank" rel="noopener noreferrer"><ArrowSquareOut size={16} weight="light" /></a>
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer"><ArrowSquareOut size={16} weight="light" /></a>
                   </Button>
                   <Button variant="secondary" size="sm" className="bg-background/20 backdrop-blur-sm">
-                  <a href={project.github} target="_blank" rel="noopener noreferrer">
-  <GithubLogo size={16} weight="light" /></a>
+                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <GithubLogo size={16} weight="light" />
+                    </a>
                   </Button>
                 </div>
               </div>
@@ -172,11 +154,11 @@ const Projects = () => {
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {project.description}
                 </p>
-                
+
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech) => (
-                    <span 
+                    <span
                       key={tech}
                       className="px-3 py-1 text-xs bg-muted rounded-full text-muted-foreground"
                     >
@@ -187,49 +169,6 @@ const Projects = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Mobile Horizontal Scroll */}
-        <div className="md:hidden">
-          <div 
-            ref={scrollRef}
-            className="flex space-x-6 overflow-x-auto pb-4"
-            style={{ scrollSnapType: 'x mandatory' }}
-          >
-            {projects.map((project) => (
-              <div 
-                key={project.id}
-                className="project-card flex-none w-80 glass-card"
-                style={{ scrollSnapAlign: 'start' }}
-              >
-                <div className="relative overflow-hidden rounded-t-2xl mb-4">
-                  <img 
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover"
-                  />
-                </div>
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-foreground">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech) => (
-                      <span 
-                        key={tech}
-                        className="px-3 py-1 text-xs bg-muted rounded-full text-muted-foreground"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
