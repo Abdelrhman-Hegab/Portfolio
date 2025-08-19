@@ -1,0 +1,164 @@
+import { useState, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { List, X } from 'phosphor-react';
+
+const Navigation = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const navLinks = [
+    { name: 'Home', href: '#hero' },
+    { name: 'About', href: '#about' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Contact', href: '#contact' }
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Initial nav animation
+    gsap.fromTo('.nav-container', {
+      opacity: 0,
+      y: -50
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      delay: 3, // After preloader
+      ease: 'power2.out'
+    });
+
+    // Nav links stagger animation
+    gsap.fromTo('.nav-link', {
+      opacity: 0,
+      y: -20
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      stagger: 0.1,
+      delay: 3.2,
+      ease: 'power2.out'
+    });
+
+  }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    
+    if (!isMenuOpen) {
+      // Open menu animation
+      gsap.fromTo('.mobile-menu', {
+        opacity: 0,
+        scale: 0.9
+      }, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.3,
+        ease: 'power2.out'
+      });
+    } else {
+      // Close menu animation
+      gsap.to('.mobile-menu', {
+        opacity: 0,
+        scale: 0.9,
+        duration: 0.2,
+        ease: 'power2.in'
+      });
+    }
+  };
+
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+    }
+  };
+
+  return (
+    <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      isScrolled ? 'py-4' : 'py-6'
+    }`}>
+      <div className={`nav-container mx-4 rounded-2xl transition-all duration-300 ${
+        isScrolled ? 'glass backdrop-blur-lg' : 'bg-transparent'
+      }`}>
+        <div className="container mx-auto px-6 flex items-center justify-between">
+          {/* Logo */}
+          <button 
+            onClick={() => scrollToSection('#hero')}
+            className="text-2xl font-bold text-gradient hover:scale-105 transition-transform duration-300"
+          >
+            Mano
+          </button>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <button
+                key={link.name}
+                onClick={() => scrollToSection(link.href)}
+                className="nav-link text-foreground hover:text-primary transition-colors duration-300 relative group"
+              >
+                {link.name}
+                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-primary group-hover:w-full transition-all duration-300" />
+              </button>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <button
+            onClick={() => scrollToSection('#contact')}
+            className="hidden md:block px-6 py-2 bg-gradient-primary rounded-xl text-primary-foreground hover:scale-105 hover:glow-primary transition-all duration-300"
+          >
+            Hire Me
+          </button>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={toggleMenu}
+            className="md:hidden p-2 rounded-xl glass hover:glow-primary transition-all duration-300"
+          >
+            {isMenuOpen ? (
+              <X size={24} weight="light" />
+            ) : (
+              <List size={24} weight="light" />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="mobile-menu md:hidden fixed inset-0 top-20 mx-4 rounded-2xl glass backdrop-blur-lg p-6">
+          <div className="flex flex-col space-y-6">
+            {navLinks.map((link) => (
+              <button
+                key={link.name}
+                onClick={() => scrollToSection(link.href)}
+                className="text-left text-lg text-foreground hover:text-primary transition-colors duration-300 py-2"
+              >
+                {link.name}
+              </button>
+            ))}
+            <button
+              onClick={() => scrollToSection('#contact')}
+              className="mt-4 px-6 py-3 bg-gradient-primary rounded-xl text-primary-foreground text-center hover:scale-105 transition-all duration-300"
+            >
+              Hire Me
+            </button>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+};
+
+export default Navigation;
