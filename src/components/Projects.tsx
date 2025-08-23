@@ -15,7 +15,7 @@ const Projects = () => {
       title: "Admin Dashboard",
       description: "A comprehensive dashboard with real-time data visualization and interactive charts.",
       image: "/lovable-uploads/2af4ce15-a2ef-4d55-b7dc-405d42573b9e.png",
-      tech: ["React", "Javascript", "js", "MUI"],
+      tech: ["HTML","React", "Javascript","MUI"],
       demo: "https://admin-dashboard-lemon-beta-63.vercel.app/",
       github: "https://admin-dashboard-lemon-beta-63.vercel.app/"
     },

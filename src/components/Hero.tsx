@@ -8,7 +8,7 @@ const Hero = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ delay: 0.5 });
-      
+
       // Main animations
       tl.fromTo('.hero-headline', {
         opacity: 0,
@@ -21,35 +21,35 @@ const Hero = () => {
         duration: 1.2,
         ease: 'power3.out'
       })
-      .fromTo('.hero-subtitle', {
-        opacity: 0,
-        y: 30
-      }, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: 'power2.out'
-      }, '-=0.6')
-      .fromTo('.hero-cta', {
-        opacity: 0,
-        scale: 0.8
-      }, {
-        opacity: 1,
-        scale: 1,
-        duration: 0.6,
-        ease: 'back.out(1.7)'
-      }, '-=0.4')
-      .fromTo('.spline-container', {
-        opacity: 0,
-        x: 100,
-        filter: 'blur(5px)'
-      }, {
-        opacity: 1,
-        x: 0,
-        filter: 'blur(0px)',
-        duration: 1.5,
-        ease: 'power2.out'
-      }, '-=1');
+        .fromTo('.hero-subtitle', {
+          opacity: 0,
+          y: 30
+        }, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power2.out'
+        }, '-=0.6')
+        .fromTo('.hero-cta', {
+          opacity: 0,
+          scale: 0.8
+        }, {
+          opacity: 1,
+          scale: 1,
+          duration: 0.6,
+          ease: 'back.out(1.7)'
+        }, '-=0.4')
+        .fromTo('.right-decor', {
+          opacity: 0,
+          x: 100,
+          filter: 'blur(5px)'
+        }, {
+          opacity: 1,
+          x: 0,
+          filter: 'blur(0px)',
+          duration: 1.5,
+          ease: 'power2.out'
+        }, '-=1');
 
       // Floating orbs animation
       gsap.to('.hero-orb-1', {
@@ -86,12 +86,11 @@ const Hero = () => {
   }, []);
 
   const handleHireMeClick = () => {
-    // Scroll to contact section
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section 
+    <section
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       id="hero"
@@ -112,21 +111,35 @@ const Hero = () => {
               Frontend Developer
             </span>
           </h1>
-          
+
           <p className="hero-subtitle text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0">
-            Crafting immersive digital experiences with cutting-edge technologies. 
+            Crafting immersive digital experiences with cutting-edge technologies.
             Specialized in React, GSAP, and modern web development.
           </p>
-          
-          <div className="hero-cta">
-            <Button 
+
+          <div className="hero-cta flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <Button
               onClick={handleHireMeClick}
               className="bg-gradient-primary hover:scale-105 transform transition-all duration-300 px-8 py-6 text-lg rounded-2xl glow-primary hover:glow-secondary"
             >
               Hire Me
             </Button>
+
+            <Button
+              asChild
+              variant="secondary"
+ className=" hover:scale-105 transform transition-all duration-300 px-8 py-6 text-lg rounded-2xl glow-primary hover:glow-secondary"            >
+              <a
+                href="https://drive.google.com/uc?export=download&id=18WVnrUTiMjHR3YC96UZTAm2M0ip1ngGV"
+                download
+              >
+                Download CV
+              </a>
+            </Button>
           </div>
         </div>
+
+
       </div>
     </section>
   );
