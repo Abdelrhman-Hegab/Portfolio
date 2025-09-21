@@ -103,7 +103,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
         {/* Left content */}
         <div className="text-center lg:text-left space-y-8">
-          <h1 className="hero-headline text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+          <h1 className="hero-headline text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
             Hi, I'm{' '}
             <span className="text-gradient">Abdelrhman Mohamed</span>
             <br />
@@ -112,7 +112,7 @@ const Hero = () => {
             </span>
           </h1>
 
-          <p className="hero-subtitle text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0">
+          <p className="hero-subtitle text-lg md:text-l text-muted-foreground max-w-2xl mx-auto lg:mx-0">
             Crafting immersive digital experiences with cutting-edge technologies.
             Specialized in React, GSAP, and modern web development.
           </p>

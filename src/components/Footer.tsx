@@ -121,42 +121,10 @@ const Footer = () => {
           {/* Logo */}
           <div>
             <h3 className="text-3xl font-bold text-gradient mb-2">Abdelrhman Mohamed</h3>
-            <p className="text-muted-foreground">Frontend Developer</p>
+            <p className="text-muted-foreground">Frontend Developer & UI/UX Designer</p>
           </div>
-
-          {/* Navigation */}
-          <nav className="flex flex-wrap justify-center gap-8">
-            {navLinks.map((link) => (
-              <button
-                key={link.name}
-                onClick={() => scrollToSection(link.href)}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-300 hover:scale-105 transform"
-              >
-                {link.name}
-              </button>
-            ))}
-          </nav>
-
-          {/* Social Links */}
-          <div className="flex justify-center space-x-6">
-            {socialLinks.map((social, index) => (
-              <a
-                key={index}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-icon p-3 rounded-xl glass hover:glow-primary transition-all duration-300"
-              >
-                <social.icon size={24} weight="light" />
-              </a>
-            ))}
-          </div>
-
           {/* Copyright */}
-          <div className="pt-8 border-t border-border/30">
-            <p className="text-muted-foreground flex items-center justify-center gap-2">
-              Made with <Heart size={16} weight="fill" className="text-red-500" /> by Abdelrhman Mohamed
-            </p>
+          <div className="pt-4 border-t border-border/30">
             <p className="text-sm text-muted-foreground mt-2">
               © {new Date().getFullYear()} All rights reserved.
             </p>
