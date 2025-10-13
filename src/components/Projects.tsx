@@ -68,7 +68,6 @@ const Projects = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Section title animation
       gsap.fromTo('.projects-title', {
         opacity: 0,
         y: 50,
@@ -84,7 +83,6 @@ const Projects = () => {
         }
       });
 
-      // Cards stagger animation
       gsap.fromTo('.project-card', {
         opacity: 0,
         y: 100,
@@ -109,36 +107,38 @@ const Projects = () => {
   return (
     <section
       ref={projectsRef}
-      className="py-20 relative overflow-hidden"
+      className="py-20 relative bg-[#0a0a0a] shadow-[0_0_80px_#00f0ff33] border-t border-[#00f0ff22] border-b"
       id="projects"
     >
       <div className="container mx-auto px-4">
-        <h2 className="projects-title text-4xl md:text-5xl font-bold text-gradient text-center mb-16">
+        <h2 className="projects-title text-4xl md:text-5xl font-bold text-[#00f0ff] drop-shadow-[0_0_10px_#00f0ff] text-center mb-6">
           Featured Projects
         </h2>
 
-        {/* Projects Grid - Responsive (Stack on mobile) */}
+        {/* Separator */}
+        <div className="mx-auto mb-12 w-24 h-1 rounded-full bg-[#00f0ff] shadow-[0_0_10px_#00f0ff]"></div>
+
         <div className="projects-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="project-card glass-card hover:glow-primary transition-all duration-500 hover:scale-105 group cursor-pointer"
+              className="project-card bg-[#1a1a1a] p-6 rounded-2xl transition-all duration-300 group hover:shadow-[0_0_15px_#00f0ff] hover:scale-105 cursor-pointer flex flex-col"
             >
               {/* Project Image */}
-              <div className="relative overflow-hidden rounded-t-2xl mb-4">
+              <div className="relative overflow-hidden rounded-xl mb-4 flex-shrink-0">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500 rounded-xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
 
                 {/* Overlay buttons */}
                 <div className="absolute inset-0 flex items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Button variant="secondary" size="sm" className="bg-background/20 backdrop-blur-sm">
+                  <Button variant="secondary" size="sm" className="bg-[#0a0a0a]/20 backdrop-blur-sm hover:bg-[#0ff0ff] hover:text-black">
                     <a href={project.demo} target="_blank" rel="noopener noreferrer"><ArrowSquareOut size={16} weight="light" /></a>
                   </Button>
-                  <Button variant="secondary" size="sm" className="bg-background/20 backdrop-blur-sm">
+                  <Button variant="secondary" size="sm" className="bg-[#0a0a0a]/20 backdrop-blur-sm hover:bg-[#0ff0ff] hover:text-black">
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                       <GithubLogo size={16} weight="light" />
                     </a>
@@ -147,11 +147,11 @@ const Projects = () => {
               </div>
 
               {/* Project Info */}
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+              <div className="flex flex-col flex-1 space-y-4">
+                <h3 className="text-xl font-semibold text-white group-hover:text-[#00f0ff] transition-colors duration-300">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-[#8aefff] text-sm leading-relaxed flex-1">
                   {project.description}
                 </p>
 
@@ -160,7 +160,7 @@ const Projects = () => {
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 text-xs bg-muted rounded-full text-muted-foreground"
+                      className="px-3 py-1 text-xs bg-[#00f0ff]/30 rounded-full text-[#00f0ff]"
                     >
                       {tech}
                     </span>

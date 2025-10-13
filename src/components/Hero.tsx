@@ -92,27 +92,29 @@ const Hero = () => {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a]"
       id="hero"
     >
       {/* Background orbs */}
-      <div className="hero-orb-1 floating-orb floating-orb-1 opacity-30" />
-      <div className="hero-orb-2 floating-orb floating-orb-2 opacity-20" />
-      <div className="hero-orb-3 floating-orb floating-orb-3 opacity-25" />
+      <div className="hero-orb-1 absolute top-10 left-10 w-40 h-40 bg-[#00f0ff] blur-3xl opacity-25 rounded-full" />
+      <div className="hero-orb-2 absolute top-1/3 right-20 w-32 h-32 bg-[#00f0ff] blur-2xl opacity-20 rounded-full" />
+      <div className="hero-orb-3 absolute bottom-16 left-1/2 transform -translate-x-1/2 w-36 h-36 bg-[#00f0ff] blur-3xl opacity-20 rounded-full" />
 
       <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
         {/* Left content */}
         <div className="text-center lg:text-left space-y-8">
-          <h1 className="hero-headline text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+          <h1 className="hero-headline text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
             Hi, I'm{' '}
-            <span className="text-gradient">Abdelrhman Mohamed</span>
+            <span className="text-[#00f0ff] drop-shadow-[0_0_10px_#00f0ff]">
+              Abdelrhman Mohamed
+            </span>
             <br />
-            <span className="text-2xl md:text-3xl lg:text-4xl font-light text-muted-foreground">
+            <span className="text-2xl md:text-3xl lg:text-4xl font-light text-[#8aefff]">
               Frontend Developer
             </span>
           </h1>
 
-          <p className="hero-subtitle text-lg md:text-l text-muted-foreground max-w-2xl mx-auto lg:mx-0">
+          <p className="hero-subtitle text-lg md:text-xl text-[#8aefff] max-w-2xl mx-auto lg:mx-0">
             Crafting immersive digital experiences with cutting-edge technologies.
             Specialized in React, GSAP, and modern web development.
           </p>
@@ -120,7 +122,7 @@ const Hero = () => {
           <div className="hero-cta flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <Button
               onClick={handleHireMeClick}
-              className="bg-gradient-primary hover:scale-105 transform transition-all duration-300 px-8 py-6 text-lg rounded-2xl glow-primary hover:glow-secondary"
+              className="bg-[#00f0ff] text-black hover:bg-transparent hover:text-[#00f0ff] hover:border border-[#00f0ff] hover:scale-105 transform transition-all duration-300 px-8 py-6 text-lg rounded-2xl shadow-[0_0_20px_#00f0ff] hover:shadow-[0_0_30px_#00f0ff] "
             >
               Hire Me
             </Button>
@@ -128,7 +130,8 @@ const Hero = () => {
             <Button
               asChild
               variant="secondary"
- className=" hover:scale-105 transform transition-all duration-300 px-8 py-6 text-lg rounded-2xl glow-primary hover:glow-secondary"            >
+              className="bg-transparent border border-[#00f0ff] text-[#00f0ff] hover:bg-[#00f0ff] hover:text-black hover:scale-105 transform transition-all duration-300 px-8 py-6 text-lg rounded-2xl shadow-[0_0_15px_#00f0ff]"
+            >
               <a
                 href="https://drive.google.com/uc?export=download&id=18WVnrUTiMjHR3YC96UZTAm2M0ip1ngGV"
                 download
@@ -138,8 +141,6 @@ const Hero = () => {
             </Button>
           </div>
         </div>
-
-
       </div>
     </section>
   );

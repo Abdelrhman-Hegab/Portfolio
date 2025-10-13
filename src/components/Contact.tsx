@@ -22,19 +22,19 @@ const Contact = () => {
       icon: GithubLogo,
       label: 'GitHub',
       url: 'https://github.com/Abdelrhman-Hegab',
-      color: 'hover:text-white',
+      color: 'hover:text-[#00f0ff]',
     },
     {
       icon: LinkedinLogo,
       label: 'LinkedIn',
       url: 'https://www.linkedin.com/in/abdelrhman-hegab/',
-      color: 'hover:text-blue-400',
+      color: 'hover:text-[#00f0ff]',
     },
     {
       icon: FacebookLogo,
       label: 'Facebook',
       url: 'https://www.facebook.com/abdelrhman.hegab.654352/',
-      color: 'hover:text-blue-300',
+      color: 'hover:text-[#00f0ff]',
     },
   ];
 
@@ -117,14 +117,14 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        "service_6jal3dl" ,  // Service ID
-        "template_e9rj6d8",  // Template ID
+        "service_6jal3dl",
+        "template_e9rj6d8",
         {
           name: formData.name,
           email: formData.email,
           message: formData.message,
         },
-        "4N-X-KGOfD65QTfHS"    // Public Key
+        "4N-X-KGOfD65QTfHS"
       );
 
       gsap.to('.submit-btn', {
@@ -155,27 +155,27 @@ const Contact = () => {
   return (
     <section
       ref={contactRef}
-      className="contact-section py-20 relative"
+      className="contact-section relative py-20 bg-[#0a0a0a] border-t border-[#00f0ff22] border-b shadow-[0_0_80px_#00f0ff33]"
       id="contact"
     >
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="contact-title text-4xl md:text-5xl font-bold text-gradient text-center mb-4">
+          <h2 className="contact-title text-4xl md:text-5xl font-bold text-[#00f0ff] drop-shadow-[0_0_10px_#00f0ff] text-center mb-4">
             Let&apos;s Work Together
           </h2>
-          <p className="text-center text-muted-foreground text-lg mb-16 max-w-2xl mx-auto">
+          <p className="text-center text-[#8aefff] text-lg mb-16 max-w-2xl mx-auto">
             Have a project in mind? Let&apos;s discuss how we can bring your vision
             to life with cutting-edge web technologies and stunning animations.
           </p>
 
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Contact Form */}
-            <div className="contact-form glass-card">
+            <div className="contact-form glass-card bg-[#1a1a1a] p-8 rounded-2xl shadow-[0_0_15px_#00f0ff]">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="form-input">
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-foreground mb-2"
+                    className="block text-sm font-medium text-white mb-2"
                   >
                     Name
                   </label>
@@ -185,7 +185,7 @@ const Contact = () => {
                     type="text"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="glass bg-input/20 border-border/30 focus:border-primary focus:glow-primary"
+                    className="glass bg-[#00000040] border-[#00f0ff66] focus:border-[#00f0ff] focus:glow-primary text-white"
                     placeholder="Your full name"
                     required
                   />
@@ -194,7 +194,7 @@ const Contact = () => {
                 <div className="form-input">
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-foreground mb-2"
+                    className="block text-sm font-medium text-white mb-2"
                   >
                     Email
                   </label>
@@ -204,7 +204,7 @@ const Contact = () => {
                     type="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="glass bg-input/20 border-border/30 focus:border-primary focus:glow-primary"
+                    className="glass bg-[#00000040] border-[#00f0ff66] focus:border-[#00f0ff] focus:glow-primary text-white"
                     placeholder="your.email@example.com"
                     required
                   />
@@ -213,7 +213,7 @@ const Contact = () => {
                 <div className="form-input">
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-foreground mb-2"
+                    className="block text-sm font-medium text-white mb-2"
                   >
                     Message
                   </label>
@@ -222,7 +222,7 @@ const Contact = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="glass bg-input/20 border-border/30 focus:border-primary focus:glow-primary min-h-32"
+                    className="glass bg-[#00000040] border-[#00f0ff66] focus:border-[#00f0ff] focus:glow-primary text-white min-h-32"
                     placeholder="Tell me about your project..."
                     required
                   />
@@ -231,11 +231,11 @@ const Contact = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="submit-btn w-full bg-gradient-primary hover:scale-105 transform transition-all duration-300 py-6 text-lg rounded-2xl glow-primary hover:glow-secondary"
+                  className="submit-btn w-full bg-gradient-to-r bg-transparent border border-[#00f0ff] text-[#00f0ff] hover:bg-[#00f0ff] hover:scale-105 transform transition-all duration-300 py-6 text-lg rounded-2xl glow-primary hover:glow-secondary text-[#00f0ff] hover:text-black font-semibold"
                 >
                   {isSubmitting ? (
-                    <div className="flex items-center space-x-2">
-                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    <div className="flex items-center space-x-2 text-black">
+                      <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
                       <span>Sending...</span>
                     </div>
                   ) : (
@@ -249,32 +249,28 @@ const Contact = () => {
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-8">
-              <div className="glass-card">
-                <h3 className="text-2xl font-semibold text-foreground mb-4">
-                  Get In Touch
-                </h3>
-                <p className="text-muted-foreground leading-relaxed mb-6">
+            <div className="space-y-8 text-white">
+              <div className="glass-card bg-[#1a1a1a] p-8 rounded-2xl shadow-[0_0_15px_#00f0ff]">
+                <h3 className="text-2xl font-semibold mb-4">Get In Touch</h3>
+                <p className="text-[#8aefff] leading-relaxed mb-6">
                   I&apos;m always excited to work on new projects and collaborate
                   with passionate individuals and teams. Whether you need a
                   complete website, interactive animations, or technical
                   consultation, I&apos;m here to help.
                 </p>
-                <div className="space-y-4 text-muted-foreground">
+                <div className="space-y-4 text-[#8aefff]">
                   <div>
-                    <span className="font-medium text-foreground">Email:</span>
+                    <span className="font-medium text-white">Email:</span>
                     <br />
                     abdelrhmanhegab9@gmail.com
                   </div>
                   <div>
-                    <span className="font-medium text-foreground">Location:</span>
+                    <span className="font-medium text-white">Location:</span>
                     <br />
                     Available for remote work worldwide
                   </div>
                   <div>
-                    <span className="font-medium text-foreground">
-                      Response Time:
-                    </span>
+                    <span className="font-medium text-white">Response Time:</span>
                     <br />
                     Usually within 24 hours
                   </div>
@@ -282,8 +278,8 @@ const Contact = () => {
               </div>
 
               {/* Social Links */}
-              <div className="social-links glass-card">
-                <h3 className="text-xl font-semibold text-foreground mb-6">
+              <div className="social-links glass-card bg-[#1a1a1a] p-8 rounded-2xl shadow-[0_0_15px_#00f0ff]">
+                <h3 className="text-xl font-semibold text-white mb-6">
                   Connect With Me
                 </h3>
                 <div className="flex space-x-4">
@@ -293,7 +289,7 @@ const Contact = () => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`social-icon p-3 rounded-xl glass hover:glow-primary transition-all duration-300 hover:scale-110 ${social.color}`}
+                      className={`social-icon p-3 rounded-xl glass shadow-[0_0_10px_#00f0ff] hover:shadow-[0_0_15px_#00f0ff] hover:scale-110 transition-all duration-300 ${social.color}`}
                       aria-label={social.label}
                     >
                       <social.icon size={24} weight="light" />

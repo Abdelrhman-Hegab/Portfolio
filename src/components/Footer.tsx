@@ -99,14 +99,14 @@ const Footer = () => {
   return (
     <footer
       ref={footerRef}
-      className="relative py-20 overflow-hidden"
+      className="relative py-20 overflow-hidden bg-[#0a0a0a] border-t border-[#00f0ff33] shadow-[0_0_60px_#00f0ff33]"
     >
       {/* Background particles */}
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="particle absolute w-2 h-2 bg-gradient-primary rounded-full opacity-30"
+            className="particle absolute w-2 h-2 bg-[#00f0ff] rounded-full opacity-30"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -117,18 +117,22 @@ const Footer = () => {
       </div>
 
       <div className="footer-content container mx-auto px-4 relative z-10">
-        <div className="glass-card text-center space-y-8">
+        <div className="glass-card bg-[#111a1f99] border border-[#00f0ff44] text-center space-y-8 p-8 rounded-3xl shadow-[0_0_15px_#00f0ff88]">
           {/* Logo */}
           <div>
-            <h3 className="text-3xl font-bold text-gradient mb-2">Abdelrhman Mohamed</h3>
-            <p className="text-muted-foreground">Frontend Developer & UI/UX Designer</p>
+            <h3 className="text-3xl font-bold text-[#00f0ff] drop-shadow-[0_0_8px_#00f0ff] mb-2">
+              Abdelrhman Mohamed
+            </h3>
+            <p className="text-[#8aefff]">Frontend Developer & UI/UX Designer</p>
           </div>
           {/* Copyright */}
-          <div className="pt-4 border-t border-border/30">
-            <p className="text-sm text-muted-foreground mt-2">
+          <div className="pt-4 border-t border-[#00f0ff33]">
+            <p className="text-sm text-[#8aefff] mt-2">
               © {new Date().getFullYear()} All rights reserved.
             </p>
           </div>
+          {/* Social Links */}
+          
         </div>
       </div>
     </footer>

@@ -92,7 +92,7 @@ const About = () => {
   return (
     <section
       ref={aboutRef}
-      className="about-section py-20 relative"
+      className="about-section py-20 relative bg-[#0a0a0a]"
       id="about"
     >
       <div className="container mx-auto px-4">
@@ -100,7 +100,7 @@ const About = () => {
           {/* Left - Profile Image */}
           <div className="profile-image flex justify-center lg:justify-start">
             <div className="relative">
-              <div className="w-90 h-90 rounded-full overflow-hidden glass-card p-2 hover:scale-105 transition-all duration-500">
+              <div className="w-90 h-90 rounded-full overflow-hidden p-2 transition-all duration-500 hover:scale-105 shadow-[0_0_25px_#00f0ff]">
                 <img
                   src="/lovable-uploads/d956961d-a750-4297-91b9-b94bae682a9f.jpg"
                   alt="Abdelrhman Mohamed"
@@ -108,24 +108,24 @@ const About = () => {
                 />
               </div>
               {/* Glow effect */}
-              <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-20 blur-xl -z-10" />
+              <div className="absolute inset-0 rounded-full bg-[#00f0ff] opacity-20 blur-xl -z-10" />
             </div>
           </div>
 
           {/* Right - Bio and Skills */}
           <div className="space-y-8">
             <div className="bio-text space-y-6">
-              <h2 className="text-4xl md:text-5xl font-bold text-gradient">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#00f0ff] drop-shadow-[0_0_10px_#00f0ff]">
                 About Me
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-[#8aefff] leading-relaxed">
                 Front-End Developer and UI/UX Designer with 1+ years of hands-on experience in building
                 responsive and accessible web interfaces using HTML, CSS, JavaScript, and React. Proficient in
                 user-centered design using tools such as Figma and Adobe XD. Strong background in object-oriented
-                programming (Java, C++) and version control systems such as Git.  Passionate about delivering
+                programming (Java, C++) and version control systems such as Git. Passionate about delivering
                 visually appealing and performance-optimized applications.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-[#8aefff] leading-relaxed">
                 My expertise lies in modern JavaScript frameworks, advanced animations
                 with GSAP, and creating responsive designs that perform beautifully
                 across all devices.
@@ -134,25 +134,27 @@ const About = () => {
 
             {/* Skills Grid */}
             <div className="skills-grid">
-              <h3 className="text-2xl font-semibold mb-6 text-foreground">Skills & Technologies</h3>
+              <h3 className="text-2xl font-semibold mb-6 text-white">
+                Skills & Technologies
+              </h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {skills.map((skill, index) => (
+                {skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="skill-item glass-card hover:glow-primary transition-all duration-300 cursor-pointer group"
+                    className="skill-item bg-[#1a1a1a] hover:shadow-[0_0_15px_#00f0ff] rounded-xl p-4 transition-all duration-300 cursor-pointer group"
                   >
                     <div className="flex flex-col items-center space-y-3">
                       <skill.icon
                         size={32}
-                        className="text-primary group-hover:text-accent transition-colors duration-300"
+                        className="text-[#00f0ff] group-hover:text-[#fff] transition-colors duration-300"
                         weight="light"
                       />
-                      <span className="text-sm font-medium text-foreground">
+                      <span className="text-sm font-medium text-[#8aefff]">
                         {skill.name}
                       </span>
-                      <div className="w-full bg-muted rounded-full h-1">
+                      <div className="w-full bg-[#333] rounded-full h-1">
                         <div
-                          className="bg-gradient-primary h-1 rounded-full transition-all duration-1000"
+                          className="bg-[#00f0ff] h-1 rounded-full shadow-[0_0_10px_#00f0ff]"
                           style={{ width: `${skill.level}%` }}
                         />
                       </div>

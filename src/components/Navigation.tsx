@@ -90,13 +90,13 @@ const Navigation = () => {
       isScrolled ? 'py-4' : 'py-6'
     }`}>
       <div className={`nav-container mx-4 rounded-2xl transition-all duration-300 ${
-        isScrolled ? 'glass backdrop-blur-lg' : 'bg-transparent'
+        isScrolled ? 'glass backdrop-blur-lg bg-[#001f2f80] border border-[#00f0ff44]' : 'bg-transparent'
       }`}>
         <div className="container mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
           <button 
             onClick={() => scrollToSection('#hero')}
-            className="text-2xl font-bold text-gradient hover:scale-105 transition-transform duration-300"
+            className="text-2xl font-bold text-[#00f0ff] hover:drop-shadow-[0_0_10px_#00f0ff] hover:scale-105 transition-transform duration-300"
           >
             Abdelrhaman
           </button>
@@ -107,10 +107,10 @@ const Navigation = () => {
               <button
                 key={link.name}
                 onClick={() => scrollToSection(link.href)}
-                className="nav-link text-foreground hover:text-primary transition-colors duration-300 relative group"
+                className="nav-link text-white hover:text-[#00f0ff] transition-colors duration-300 relative group"
               >
                 {link.name}
-                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-primary group-hover:w-full transition-all duration-300" />
+                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00f0ff] to-[#00d4ff] group-hover:w-full transition-all duration-300" />
               </button>
             ))}
           </div>
@@ -118,7 +118,7 @@ const Navigation = () => {
           {/* CTA Button */}
           <button
             onClick={() => scrollToSection('#contact')}
-            className="hidden md:block px-6 py-2 bg-gradient-primary rounded-xl text-primary-foreground hover:scale-105 hover:glow-primary transition-all duration-300"
+            className="hidden md:block px-6 py-2 bg-gradient-to-r from-[#00f0ff] to-[#00d4ff] rounded-xl text-black hover:scale-105 hover:glow-primary transition-all duration-300"
           >
             Hire Me
           </button>
@@ -126,7 +126,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="md:hidden p-2 rounded-xl glass hover:glow-primary transition-all duration-300"
+            className="md:hidden p-2 rounded-xl glass hover:glow-primary transition-all duration-300 text-[#00f0ff]"
           >
             {isMenuOpen ? (
               <X size={24} weight="light" />
@@ -139,20 +139,20 @@ const Navigation = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="mobile-menu md:hidden fixed inset-0 top-20 mx-4 rounded-2xl glass backdrop-blur-lg p-6">
+        <div className="mobile-menu md:hidden fixed inset-0 top-20 mx-4 rounded-2xl glass backdrop-blur-lg bg-[#001f2fdd] border border-[#00f0ff44] p-6">
           <div className="flex flex-col space-y-6">
             {navLinks.map((link) => (
               <button
                 key={link.name}
                 onClick={() => scrollToSection(link.href)}
-                className="text-left text-lg text-foreground hover:text-primary transition-colors duration-300 py-2"
+                className="text-left text-lg text-white hover:text-[#00f0ff] transition-colors duration-300 py-2"
               >
                 {link.name}
               </button>
             ))}
             <button
               onClick={() => scrollToSection('#contact')}
-              className="mt-4 px-6 py-3 bg-gradient-primary rounded-xl text-primary-foreground text-center hover:scale-105 transition-all duration-300"
+              className="mt-4 px-6 py-3 bg-gradient-to-r from-[#00f0ff] to-[#00d4ff] rounded-xl text-black text-center hover:scale-105 transition-all duration-300"
             >
               Hire Me
             </button>
