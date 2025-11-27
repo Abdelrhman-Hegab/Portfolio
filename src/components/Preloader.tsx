@@ -60,7 +60,7 @@ const Preloader = ({ onLoadComplete }: PreloaderProps) => {
                         Abdelrhman Mohamed
 
           </h1>
-          <p className="text-[#8aefff] text-lg mt-2">Frontend Developer</p>
+          <p className="text-[#8aefff] text-lg mt-2">Frontend Developer & UI/UX Designer</p>
         </div>
 
         {/* Progress bar */}
