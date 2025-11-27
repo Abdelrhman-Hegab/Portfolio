@@ -110,7 +110,7 @@ const Hero = () => {
             </span>
             <br />
             <span className="text-2xl md:text-2xl lg:text-3xl font-light text-[#8aefff]">
-              Frontend Developer/Ui Ux Designer
+              Frontend Developer & UI/UX Designer
             </span>
           </h1>
 
