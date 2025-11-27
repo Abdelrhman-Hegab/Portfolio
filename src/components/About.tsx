@@ -102,7 +102,7 @@ const About = () => {
             <div className="relative">
               <div className="w-90 h-90 rounded-full overflow-hidden p-2 transition-all duration-500 hover:scale-105 shadow-[0_0_25px_#00f0ff]">
                 <img
-                  src="/lovable-uploads/d956961d-a750-4297-91b9-b94bae682a9f.jpg"
+                  src="/lovable-uploads/d956961d-a750-4297-91b9-b94bae682a9f.png"
                   alt="Abdelrhman Mohamed"
                   className="w-full h-full object-cover rounded-full"
                 />

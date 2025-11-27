@@ -109,8 +109,8 @@ const Hero = () => {
               Abdelrhman Mohamed
             </span>
             <br />
-            <span className="text-2xl md:text-3xl lg:text-4xl font-light text-[#8aefff]">
-              Frontend Developer
+            <span className="text-2xl md:text-2xl lg:text-3xl font-light text-[#8aefff]">
+              Frontend Developer/Ui Ux Designer
             </span>
           </h1>
 
